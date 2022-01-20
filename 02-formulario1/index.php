@@ -58,9 +58,9 @@ print_r($_POST);
 
             <fieldset>
                 <legend>Edad</legend>
-                <label><input type="radio" tabindex="20" name="edad" value="20-39" /> 20-39</label>
-                <label><input type="radio" tabindex="21" name="edad" value="40-59" /> 40-59</label>
-                <label><input type="radio" tabindex="22" name="edad" value="60-79" /> 60-79</label>
+                <label><input type="radio" tabindex="20" name="edad" value="20-39" <?php if($edad == "20-39"){echo "checked"; } ?>/> 20-39</label>
+                <label><input type="radio" tabindex="21" name="edad" value="40-59" <?php if($edad == "40-59"){echo "checked"; } ?>/> 40-59</label>
+                <label><input type="radio" tabindex="22" name="edad" value="60-79" <?php if($edad == "60-79"){echo "checked"; } ?>/> 60-79</label>
             </fieldset>
 
             <input type="submit" name="Enviar" value="Enviar">
