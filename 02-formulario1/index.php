@@ -1,14 +1,36 @@
 <?php
-echo "GET:<br>";
-print_r($_GET);
+
+#Utilizo una funcion que dice si hay una variable establecida y
+#sacamos el valor del objeto
+ #if(isset($_POST["enviar"])){
+ #   echo "Se esta enviando info " - $_POST["nombre"];
+#}else{
+ #   echo "Bienvenido";
+
+#}
+
+$bienvenido=true;
+$nombre="";
+$apellidos='';
+$edad='';
+
+if(isset($_POST["Enviar"])){
+    $bienvenido=false;
+    $nombre=$_POST["nombre"];
+    $apellidos=$_POST["apellidos"];
+    $edad=$_POST["edad"];
+}
+
+#echo "GET:<br>";
+#print_r($_GET);
 echo "POST:<br>";
 print_r($_POST);
-echo "COOKIES:<br>";
-print_r($_COOKIES);
-echo "SESSION:<br>";
-print_r($_SESSION);
-echo "SERVER:<br>";
-print_r($_SERVER);
+#echo "COOKIES:<br>";
+#print_r($_COOKIES);
+#echo "SESSION:<br>";
+#print_r($_SESSION);
+#echo "SERVER:<br>";
+#print_r($_SERVER);
 
 ?>
 
@@ -21,14 +43,17 @@ print_r($_SERVER);
     <title>Formulario</title>
 </head>
 <body>
+<?php if($bienvenido) { ?>
+        <h1>Bienvenido!!!</h1>
+    <?php } ?>
     <div>
         <form action="index.php" method="POST">    
 <fieldset>
                 <legend>Información Personal</legend>
                 <label for="nombre">Nombre:</label>
-                <input name="nombre" id="nombre" type="text" tabindex="1" />
-                <label for="apellidos">Apellidos:</label>
-                <input name="apellidos" id="apellidos" type="text" tabindex="2" />
+                <input name="nombre" id="nombre" type="text" tabindex="1" value="<?php echo $nombre; ?>"/>
+                <label for="apellidos" >Apellidos:</label>
+                <input name="apellidos" id="apellidos" type="text" tabindex="2" value="<?php echo $apellidos; ?>"/>
             </fieldset>
 
             <fieldset>
