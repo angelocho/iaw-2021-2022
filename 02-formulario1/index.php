@@ -23,15 +23,18 @@ if(isset($_POST["Enviar"])){
     $apellidos=$_POST["apellidos"];
     #$edad=$_POST["edad"];
     if(isset($_POST["edad"])){
-        if($_POST["edad"]=="20-39"){
+        /*if($_POST["edad"]=="20-39"){
                 $edad_20_39='checked';
         }elseif ($_POST["edad"]=="40-59"){
                 $edad_40_59='checked';
         }elseif ($_POST["edad"]=="60-79"){
                 $edad_60_79='checked';
-        }
-
-
+        } */
+        # If ternarios
+        # $variable=(true)?'valorverdad':'valormentira';
+      $edad_20_39=($_POST["edad"]=="20-39")?'checked':'';
+      $edad_40_59=($_POST["edad"]=="40-59")?'checked':'';
+      $edad_60_79=($_POST["edad"]=="60-79")?'checked':'';
     }
 }
 
