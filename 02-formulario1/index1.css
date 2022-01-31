@@ -1,0 +1,10 @@
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.background-error{
+
+        background-color: tomato;
+}
+

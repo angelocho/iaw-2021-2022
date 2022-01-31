@@ -9,7 +9,10 @@ if(isset($_POST["numero"])){
     $numero=$_POST["numero"];   
     $enviado=true;
 }
-
+if(isset($_GET["numero"])){
+    $numero=$_GET["numero"];   
+    $enviado=true;
+}
 
 ?>
 
@@ -17,13 +20,10 @@ if(isset($_POST["numero"])){
 <html lang="es">
 <head>
     <meta charset="UTF-8">
- <?php   if(isset($_POST["numero"])){ 
+ <?php if($enviado == true){ ?>
+<meta http-equiv="refresh" content="2; url=index.php?numero=<?=$numero?>">
 
-
-echo '<meta http-equiv="refresh" content="1;url=http://localhost:9000/index.php?&numero='. $numero . '">';          
-     ?>
 <?php } ?>
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="indexstyle.css">
     <title>Piramide</title>
