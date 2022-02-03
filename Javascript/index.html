@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola mundo</title>
+    <script>
+
+        window.addEventListener("load", function(){
+
+        // document.writeln("Hola mundo JS!") //   Escribe Hola Mundo JS
+        // alert('Hola mundo')   // Alerta Hola Mundo, no se usa
+        let pulsaBtn // Declara una variable
+        let numClicks = 0    
+        // Obtener elemento del HTML en JS
+        pulsaBtn = document.getElementById("pulsaBtn")
+        // Asociar la ejecucion de una funcion al evento click 
+        pulsaBtn.addEventListener("click",function(){
+            numClicks = numClicks + 1
+            alert("Me has pulsado "+numClicks)
+            
+        })
+
+    })
+    </script>
+</head>
+<body>
+        <h1>Hola</h1>
+        <br>
+        <button id="pulsaBtn">Pulsame bby</button>   
+</body>
+</html>
