@@ -13,18 +13,20 @@
         // alert('Hola mundo')   // Alerta Hola Mundo, no se usa
         let pulsaBtn // Declara una variable
         let numClicks = 0
-        let bienvenido = false    
+        let bienvenido = true    
         // Obtener elemento del HTML en JS
         pulsaBtn = document.getElementById("pulsaBtn")
+        let salida = document.getElementById("salida")
+            salida.innerHTML
+
         // Asociar la ejecucion de una funcion al evento click 
         pulsaBtn.addEventListener("click",function(){
             numClicks = numClicks + 1
             if (bienvenido == true) {
-                alert('Bienvenido')
+                salida.innerHTML="Bienvenido"
                 bienvenido = false
              } else {
-                alert("Me has pulsado "+numClicks)
-                bienvenido = true
+                salida.innerHTML="Me has pulsado " + numClicks
              }
         })
 
@@ -36,5 +38,10 @@
      stro
         <br>
         <button id="pulsaBtn" sumbit="https://google.com" >Pulsame bby</button>   
+<div id="salida">
+
+
+</div>
+
 </body>
 </html>

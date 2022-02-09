@@ -19,9 +19,12 @@ if(isset($_POST["Enviar"])){
     if(strlen($nombre) < 3){
         $error_nombre = true;
         $errores = true;
-    }elseif (preg_match($nombre,'/.*\d+.*/')) {
+    }elseif (preg_match("/^[a-z,A-Z]+$/",$nombre)) {
+        $error_nombre= false;
+        $errores = false;        
+    }else{
         $error_nombre= true;
-        $errores = true;        
+        $errores = true;
     }
     
 

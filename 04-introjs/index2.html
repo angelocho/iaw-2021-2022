@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Fibonacci</title>
+    <script>
+
+        window.addEventListener("load", function(){
+
+       
+        let pulsaBtn 
+        let numClicks = 0
+        let num1 = 0
+        let num2 = 1
+        let num3 = 0
+        let bienvenido = true    
+        // Obtener elemento del HTML en JS
+        pulsaBtn = document.getElementById("pulsaBtn")
+        let salida = document.getElementById("salida")
+            salida.innerHTML
+
+        // Asociar la ejecucion de una funcion al evento click 
+        pulsaBtn.addEventListener("click",function(){
+                num1 = num1 + num2
+                num3 = num2
+                num2 = num2 + num1
+                salida.innerHTML="Me has pulsado " + " " + num1 +" " + " " + num3 +" "+ num2 
+        })
+
+    })
+
+    </script>
+</head>
+<body>
+        <br>
+        <button id="pulsaBtn" >Pulsame bby</button>   
+<div id="salida">
+
+
+</div>
+
+</body>
+</html>
