@@ -23,6 +23,11 @@ if(isset($_POST["Enviar"])){
         $error_nombre= true;
         $errores = true;        
     }
+    if (ctype_alpha($nombre)){
+        $error_nombre = false;
+    } else {
+        $error_nombre = true;
+    }
     
 
     
@@ -126,7 +131,7 @@ if(isset($_POST["Enviar"])){
             <fieldset class="colorfieldset">
                 <legend>Información Personal</legend>
                 <label <?=($error_nombre)?'class="error"':'';?> for="nombre">Nombre:</label>
-                <input <?=($error_nombre)?'class="background-error"':'';?> name="nombre" id="nombre" type="text" tabindex="1" value="<?=$nombre?>" pattern="[A-Za-z]"  title="Solo letras, por favor"/>
+                <input <?=($error_nombre)?'class="background-error"':'';?> name="nombre" id="nombre" type="text" tabindex="1" value="<?=$nombre?>" pattern="[A-Za-z]{3,}"  title="Solo letras, por favor"/>
                 <label <?=($error_apellido)?'class="error"':'';?> for="apellidos" >Apellidos:</label>
                 <input <?=($error_apellido)?'class="background-error"':'';?>name="apellidos" id="apellidos" type="text" tabindex="2" value="<?=$apellidos?>"/><br><br>
                 
