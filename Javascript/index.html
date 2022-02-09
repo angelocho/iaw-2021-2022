@@ -12,22 +12,29 @@
         // document.writeln("Hola mundo JS!") //   Escribe Hola Mundo JS
         // alert('Hola mundo')   // Alerta Hola Mundo, no se usa
         let pulsaBtn // Declara una variable
-        let numClicks = 0    
+        let numClicks = 0
+        let bienvenido = false    
         // Obtener elemento del HTML en JS
         pulsaBtn = document.getElementById("pulsaBtn")
         // Asociar la ejecucion de una funcion al evento click 
         pulsaBtn.addEventListener("click",function(){
             numClicks = numClicks + 1
-            alert("Me has pulsado "+numClicks)
-            
+            if (bienvenido == true) {
+                alert('Bienvenido')
+                bienvenido = false
+             } else {
+                alert("Me has pulsado "+numClicks)
+                bienvenido = true
+             }
         })
 
     })
+
     </script>
 </head>
 <body>
-        <h1>Hola</h1>
+     stro
         <br>
-        <button id="pulsaBtn">Pulsame bby</button>   
+        <button id="pulsaBtn" sumbit="https://google.com" >Pulsame bby</button>   
 </body>
 </html>
