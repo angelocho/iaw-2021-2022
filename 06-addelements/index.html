@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Elements</title>
+    <script>
+        window.addEventListener('load', function(){
+            let contenido = document.getElementById('contenido')
+            let addBtn = document.getElementById('addBtn')
+            let numero = document.getElementById('numero')
+            let reset = document.getElementById('reset')
+            let cosa = document.getElementById('cosa')
+            addBtn.addEventListener('click', function(){
+               if ((cosa.value != "") && (numero.value != "") && (numero.value != 0)){
+                let li = document.createElement('li')
+                li.innerHTML = cosa.value
+                li.innerHTML = li.innerHTML + " " + numero.value
+                contenido.appendChild(li)
+               }
+            
+            })
+
+            reset.addEventListener('click', function(){
+                cosa.value= ""
+                numero.value = ""
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="cosa"> <input type="number" name="" id="numero" min="1"> <button type="reset" value="+" id="reset">+</button>
+    <button id="addBtn">Añadir!!!</button>
+    
+    <ul id="contenido">
+
+
+    </ul>
+</body>
+</html>
