@@ -12,21 +12,20 @@
        
         let pulsaBtn 
         let numClicks = 0
-        let num1 = 0
-        let num2 = 1
+        let actual =-1
+        let anterior = 1
         let num3 = 0
         let bienvenido = true    
         // Obtener elemento del HTML en JS
         pulsaBtn = document.getElementById("pulsaBtn")
         let salida = document.getElementById("salida")
-            salida.innerHTML
 
         // Asociar la ejecucion de una funcion al evento click 
         pulsaBtn.addEventListener("click",function(){
-                num1 = num1 + num2
-                num3 = num2
-                num2 = num2 + num1
-                salida.innerHTML="Me has pulsado " + " " + num1 +" " + " " + num3 +" "+ num2 
+                actual = actual + anterior
+                num3 = anterior
+                anterior = anterior + actual
+                salida.innerHTML= salida.innerHTML+ " " + actual +" " + " " + num3 +" "+ anterior + " ," 
         })
 
     })

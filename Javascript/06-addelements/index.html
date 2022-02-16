@@ -15,8 +15,7 @@
             addBtn.addEventListener('click', function(){
                if ((cosa.value != "") && (numero.value != "") && (numero.value != 0)){
                 let li = document.createElement('li')
-                li.innerHTML = cosa.value
-                li.innerHTML = li.innerHTML + " " + numero.value
+                li.innerHTML = cosa.value + " " + numero.value
                 contenido.appendChild(li)
                }
             
@@ -30,9 +29,9 @@
     </script>
 </head>
 <body>
-    <input type="text" name="" id="cosa"> <input type="number" name="" id="numero" min="1"> <button type="reset" value="+" id="reset">+</button>
+ 
+    <input type="text" name="" id="cosa" placeholder="Qué comprar"> <input type="number" name="" id="numero" min="1" placeholder="Cuanto"> <button type="reset" value="+" id="reset">+</button>
     <button id="addBtn">Añadir!!!</button>
-    
     <ul id="contenido">
 
 
