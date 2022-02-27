@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annadir <html></html></title>
+
+    <script>
+           
+            window.addEventListener("load", function(){
+                let lista = document.getElementById('lista')
+                let botonhover = document.getElementById("botonhover")
+
+                botonhover.addEventListener("mouseleave", function() {
+                    let li = document.createElement('li')
+                    li.innerHTML = "Salida"
+                    lista.appendChild(li)
+
+                })
+                botonhover.addEventListener("mouseover", function(){
+                    let li = document.createElement('li')
+                    li.innerHTML = "Entrada"
+                    lista.appendChild(li)
+                    
+                    
+                })
+            })
+
+
+
+    </script>
+</head>
+<body>
+    
+    <input type="button" value="botonhover" id="botonhover">
+    <ul id="lista">
+
+    </ul>
+
+</body>
+</html>

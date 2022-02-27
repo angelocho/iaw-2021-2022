@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telefono</title>
+    <script>
+        window.addEventListener("load",function(){
+            
+            let uno = document.getElementById("uno")
+            let dos = document.getElementById("dos")
+            let tres = document.getElementById("tres")
+            let cuatro = document.getElementById("cuatro")
+            let cinco = document.getElementById("cinco")
+            let seis = document.getElementById("seis")
+            let siete = document.getElementById("siete")
+            let ocho = document.getElementById("ocho")
+            let nueve = document.getElementById("nueve")
+            let cero = document.getElementById("cero")
+            let contenedor = document.getElementById("contenedor")
+            uno.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + uno.value
+
+            })
+
+            dos.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + dos.value
+
+            })
+            tres.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + tres.value
+
+            })
+            cuatro.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + cuatro.value
+
+            })
+            cinco.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + cinco.value
+
+            })
+            seis.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + seis.value
+
+            })
+            siete.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + siete.value
+
+            })
+
+            ocho.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + ocho.value
+
+            })
+
+            nueve.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + nueve.value
+
+            })
+
+            cero.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + cero.value
+
+            })
+
+
+
+
+
+
+
+        })
+
+
+
+    </script>
+</head>
+<body>
+    <input type="button" value="1" id="uno">
+    <input type="button" value="2" id="dos">
+    <input type="button" value="3" id="tres"> <br>
+    <input type="button" value="4" id="cuatro">
+    <input type="button" value="5" id="cinco">
+    <input type="button" value="6" id="seis"> <br>
+    <input type="button" value="7" id="siete">
+    <input type="button" value="8" id="ocho">
+    <input type="button" value="9" id="nueve"> <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="0" id="cero">
+
+    <h1 id="contenedor">
+
+
+    </h1>
+</body>
+</html>

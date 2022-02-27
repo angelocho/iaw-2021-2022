@@ -1,0 +1,333 @@
+###################################################            ###################################################
+###################################################    PHP     ###################################################
+###################################################            ###################################################
+#inicializar php
+
+<?php 
+?>
+<! ---  Se puede incrustar en el html  ---> <?php  echo $miprimeravariable; ?>
+
+#inicializar variables y obtener del $_POST valores y mantenerlos
+
+if(isset($_POST["enviar"])){
+    $bienvenido=false; 
+
+# esto es un if ternario que si es verdadero, mantiene el valor de nombre si se ha establecido y si no, es vacio
+ # $variable=(true)?'valorverdad':'valormentira';
+
+$nombre = (isset($_POST["nombre"]))?$_POST["nombre"]:'';
+<!-- Mas ejemplos -->
+
+$edad_20_39=($_POST["edad"]=="20_39")?'checked':'';
+$edad_40_59=($_POST["edad"]=="40_59")?'checked':'';
+        $edad_60_79=($_POST["edad"]=="60_79")?'checked':'';
+        <?=$edad_20_39?> <!-- Esto es extraer un valor de php-->
+        <?=($error_nombre)?'class="background-error"':'';?>
+
+#Comprobar longitud
+
+    if(strlen($nombre)<3){
+        $error_nombre = true;
+    }
+}
+
+#expresion regular 
+
+$nombre = (isset($_POST["nombre"]))?$_POST["nombre"]:'';
+    if(strlen($nombre) < 3){
+        $error_nombre = true;
+        $errores = true;
+    }elseif (preg_match("/^[a-z,A-Z]+$/",$nombre)) {
+        $error_nombre= false;
+        $errores = false;        
+    }else{
+        $error_nombre= true;
+        $errores = true;
+    }
+
+
+
+#PRINTAMOS VARIABLES SUPERGLOBALES
+
+/*
+echo "<br>POST:<br>";
+print_r($_POST);
+
+
+echo "<br>";
+
+echo "GET:<br>";
+print_r($_GET);
+
+
+echo "<br>COOKIES:<br>";
+print_r($_COOKIES);
+
+echo "<br>SESSION:<br>";
+print_r($_SESSION);
+
+echo "<br>SERVER:<br>";
+print_r($_SERVER);
+
+*/
+
+
+#PIRAMIDES
+
+<!-- Una vez que se haya enviado, recogeremos los datos con $_GET -->
+<?php if($enviado == true){ ?>
+<meta http-equiv="refresh" content="2; url=index.php?numero=<?=$numero?>">
+<?php } ?>
+
+$enviado=false;
+$asterisco="*";
+$numero="";
+
+if(isset($_POST["numero"])){
+    $numero=$_POST["numero"];   
+    $enviado=true;
+}
+if(isset($_GET["numero"])){
+    $numero=$_GET["numero"];   
+    $enviado=true;
+}
+
+
+
+######################### Estructuras de control ########################################
+
+if (condicion) {
+
+} else / elseif {
+
+}
+
+for ($i=1; $i <= $numero; $i++){
+                for($c=1; $c <= $i; $c++){
+                #echo "<span style=color:"."#".rand(0,999999).">".$asterisco."</span>"; 
+                echo "<span style=color:".sprintf("#%06X", mt_rand(0, 0xFFFFFF)).">".$asterisco."</span>"; 
+  
+            }
+                echo "<br>";
+            }
+
+
+#######################           COOKIES            #######################
+
+
+<!-- Este ejercicio consiste en concatenar a una cookie llamada prueba la palabra Hola e ir sumando exclamaciones -->
+<!-- Al darle a refrescar, como la variable no tiene nada, se le asigna Hola. Como ya tiene algo, a la variable $cadena 
+se le asigna lo que tenia la variable $_COOKIE['Prueba'] anteriormente, es decir, Hola, ahora cuando le demos a refrescar, tendrá Hola!.
+-->
+
+if(isset($_COOKIE['Prueba'])){
+    $cadena=$_COOKIE['Prueba'];
+} else {
+    $cadena='Hola';
+}
+
+$cadena = $cadena . '!';
+
+setcookie("Prueba", $cadena);
+
+
+print_r($_COOKIE);
+
+
+
+<!--- Ejercicio visit counter -->
+
+<?php 
+$nvisita = 0;
+if(!isset($_COOKIE['nvisita'])) {
+    $nvisita = 1;
+} else {
+    $nvisita = $_COOKIE['nvisita'];
+    $nvisita = $nvisita + 1;
+}
+setcookie("nvisita", $nvisita);
+?>
+
+<!-- page*.php -->
+<!-- La directiva include hace ni mas ni menos que incluir el html de la pagina y el php -->
+
+<?php
+include("visit_counter.php");
+?>
+?php if($nvisita == 1) { ?>
+        <h1>Bienvenido!!</h1>
+    <?php } else { ?>
+        <h1>Es tu <?=$nvisita?> visita!!</h1>
+    <?php } ?>
+   <h1>Pagina</h1>
+
+<?php include("menu.php"); ?>
+
+
+
+############################# SESIONES ###################################
+<!-- Con esto, iniciamos la sesion -->
+session_start();
+
+
+echo "Primero <br>";
+print_r($_SESSION);
+$var = mt_rand(0,100)." ";
+$val = mt_rand(0,100)." ";
+
+echo "Segundo <br>";
+print_r($_SESSION);
+
+<!-- Con esto le daremos valor --> 
+$_SESSION['hola']="Hola Mundo";
+$_SESSION[$val]=$var;
+
+<!-- Por ejemplo, aqui cojeremos el valor de algo que nos mandan por POST -->
+session_start();
+$color=$_SESSION['color'];
+if (isset($_POST["enviar"])){
+$color=$_POST["colorbox"];
+$_SESSION['color'] = $color;
+}
+
+<body <?php if(isset($_SESSION)){  
+        echo "style='background-color: $color'"?>  
+    <?php }?> >
+
+<form action="config.php" method="POST" >
+    <input type="color" name="colorbox" id="colorbox">
+    <input type="submit" value="enviar" name="enviar">
+    </form>
+
+##page1.php
+
+<?php 
+session_start();
+$color = $_SESSION['color'];
+?>
+
+################### bases de datos con php ####################
+
+
+## Conexión
+
+From: https://www.php.net/manual/es/pdo.connections.php
+
+```php
+try {
+    $mbd = new PDO('mysql:host=localhost;dbname=prueba', $usuario, $contraseña);
+    foreach($mbd->query('SELECT * from FOO') as $fila) {
+        print_r($fila);
+    }
+    $mbd = null;
+} catch (PDOException $e) {
+    print "¡Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+```
+
+## Resto chuleta...
+
+```php
+
+//Create connection
+$db = new PDO('mysql:host=localhost;dbname=DATABASENAME;charset=utf8mb4', 'USERNAME', 'PASSWORD');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);//https://www.php.net/manual/en/pdo.setattribute.php
+
+//Check connection status
+echo $db->getAttribute(PDO::ATTR_CONNECTION_STATUS);
+
+//SELECT with loop
+$select = $db->prepare("SELECT `col`, `col2` FROM `table`");
+$select->execute();
+while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+    $db_col = $row['col'];
+    $db_col2 = $row['col2'];
+    echo "$db_col $db_col2<br>";
+}
+
+
+
+
+
+
+###################################################            ###################################################
+################################################### JAVASCRIPT ###################################################
+###################################################            ###################################################
+
+
+<script>
+//Escuchamos que se carga la ventana
+        window.addEventListener("load", function(){
+
+        // document.writeln("Hola mundo JS!") //   Escribe Hola Mundo JS
+        // alert('Hola mundo')   // Alerta Hola Mundo, no se usa
+        let pulsaBtn // Declara una variable
+        let numClicks = 0
+        let bienvenido = true 
+
+        // Obtener elemento del HTML en JS
+        pulsaBtn = document.getElementById("pulsaBtn")
+        let salida = document.getElementById("salida")
+            salida.innerHTML
+
+        // Asociar la ejecucion de una funcion al evento click 
+        pulsaBtn.addEventListener("click",function(){
+            numClicks = numClicks + 1
+            if (bienvenido == true) {
+                salida.innerHTML="Bienvenido"
+                bienvenido = false
+             } else {
+                salida.innerHTML="Me has pulsado " + numClicks
+             }
+        })
+
+    })
+
+    </script>
+
+
+// SUPERPODER PARA ESCRIBIR EN EL HTML, ###### ALTO SECRETO ######
+let pulsaBtn 
+        let numClicks = 0
+        let actual =-1
+        let anterior = 1
+        let num3 = 0
+        let bienvenido = true    
+        // Obtener elemento del HTML en JS
+        pulsaBtn = document.getElementById("pulsaBtn")
+        let salida = document.getElementById("salida")
+        // Asociar la ejecucion de una funcion al evento click 
+ pulsaBtn.addEventListener("click",function(){
+                actual = actual + anterior
+                num3 = anterior
+                anterior = anterior + actual
+                salida.innerHTML= salida.innerHTML+ " " + actual +" " + " " + num3 +" "+ anterior + " ," 
+        })
+
+<div id="salida">
+</div>
+
+// 
+
+
+
+
+// SUPERPODER PARA CREAR ETIQUETAS HTML
+
+let contenido = document.getElementById('contenido')
+            let addBtn = document.getElementById('addBtn')
+            let numero = document.getElementById('numero')
+            let reset = document.getElementById('reset')
+            let cosa = document.getElementById('cosa')
+            addBtn.addEventListener('click', function(){
+               if ((cosa.value != "") && (numero.value != "") && (numero.value != 0)){
+                let li = document.createElement('li')
+                li.innerHTML = cosa.value + " " + numero.value
+                contenido.appendChild(li)
+               }
+            
+            })
+
+<ul id="contenido">
+</ul>

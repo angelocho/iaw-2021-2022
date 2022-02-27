@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binario a decimal</title>
+<script>
+    window.addEventListener("load",function(){
+        let uno = document.getElementById("uno")
+        let cero = document.getElementById("cero")
+        let contenedor = document.getElementById("contenedor")
+        let enviar = document.getElementById("enviar")
+        cero.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + cero.value
+
+            })
+        uno.addEventListener("click",function(){
+                
+                contenedor.innerHTML = contenedor.innerHTML + uno.value
+
+        })
+        enviar.addEventListener("enviar",function(){
+            binario = document.getElementById("contenedor")
+            function binarioDecimal(binario){
+            var decimal = 0, i = 0, resto;
+    
+             while (binario != 0) {
+                resto = binario % 10;
+                binario = Number.parseInt(binario / 10);
+                decimal = decimal + resto * Math.pow(2, i);
+                ++i;
+                }
+             return decimal;
+            }
+
+        })
+
+
+    })
+
+</script>
+</head>
+<body>
+    
+<input type="button" value="1" id="uno">
+<input type="button" value="0" id="cero"><br>
+<input type="submit" value="enviar">
+<h1 id="contenedor">
+
+
+</h1>
+
+<h3 id="resultado">
+
+</h3>
+
+</body>
+</html>
