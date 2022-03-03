@@ -1,11 +1,6 @@
 <?php 
 session_start();
 
-
-
-
-
-
 if (!isset($_SESSION["num"])){
     $_SESSION["num"] = 0;   
 }
@@ -34,7 +29,7 @@ print_r($_SESSION);
 <body>
     <form method="POST" action="sesiones.php">
         <input type="text" name="texto" id="texto">
-        <input type="number" name="numero" id="numero">
+        <input type="number" name="numero" id="numero" >
         <input type="submit" name="enviar" value="enviar">
     </form>
    <!-- Los benditos NAME !!!!-->

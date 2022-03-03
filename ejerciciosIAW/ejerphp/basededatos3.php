@@ -1,18 +1,17 @@
 <?php 
 include('accesoadatos.php');
 
-$datos = $conexion_bd->query('SELECT * FROM clientes');
+$datos = $conexion_bd->query('SELECT * FROM clientes ORDER BY edad DESC');
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
-    <title>Base de datos 1</title>
+    <title>Ordenar</title>
 </head>
 <body>
 <div id="content">

@@ -1,0 +1,20 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+#foto{
+    width:25%;
+    margin: 0 auto;
+    margin-right: 5%;
+    padding: 3em;
+    border:1px solid black;
+    text-align: right;
+
+}
+#foto p{
+    padding: 1em;
+    margin-right: 25%;
+
+}
